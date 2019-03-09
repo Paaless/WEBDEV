@@ -1,4 +1,5 @@
 <?php
+require 'db.php';
 $_SESSION['email']=$_POST['email'];
 $_SESSION['firstname']=$_POST['firstname'];
 $_SESSION['lastname']=$_POST['lastname'];
