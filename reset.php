@@ -31,4 +31,6 @@ if(isset($_GET['email']) $$ !empty($_GET['email']) AND isset($_GET['hash'] $$ !e
         <input type="password" required name="confirmpassowrd" autocomplete="off">
       </div>
     </form>
+   </div>
+   </body>
 </html>
