@@ -30,7 +30,7 @@ else{
         Salut'.$firstname.',
         Multumim pentru ca te-ai inscris!
         Apasa pe acest link pentru a-ti activa contul:
-        https://localhost/ /verify.php?email='.$email.'&hash'.$hash;
+        https://localhost/ /verify.php?email='.$email.'&hash='.$hash;
         mail($to, $subject, $message_body);
         
         header("location:profile.php");
