@@ -1,13 +1,13 @@
 <?php
 require "file_db.php";
 $target_dir="uploads/";
-$target_file=$target_dir.basename($_FILES["file"]);
+$target_file=$target_dir . basename($_FILES["fileImg"]["name"]);
 $uploadOk=1;
-$imageFileType=strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) 
-{
+{echo 1;
     $image_name=$_POST["img_name"];
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["fileImg"]["tmp_name"]);
     if($check !== false) 
     {
         $uploadOk = 1;
@@ -18,20 +18,19 @@ if(isset($_POST["submit"]))
         $uploadOk = 0;
     }
 }
-if (file_exists($target_file)) 
-{
+if (file_exists("$idUp"."$imageFileType")) {
     echo "Fisierul deja exista.";
     $uploadOk = 0;
 }
 else
 { 
-$sql="INSERT INTO files (name,type)"."VALUES('$file_name','$imageFileType')";
-}
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+$sql="INSERT INTO files (name,type,id)"."VALUES('$image_name','$imageFileType','$idUp')";}
+if ($_FILES["fileImg"]["size"] > 500000) {
     echo "Marimea fisierului este prea mare.";
     $uploadOk = 0;
 }
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"&& $imageFileType != "gif") 
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif") 
 {
     echo "Sunt suportate numai fisierele JPG, JPEG, PNG & GIF.";
     $uploadOk = 0;
@@ -44,17 +43,17 @@ else
 if ($uploadOk == 0) {
     echo "Fisierul nu a fost incarcat";
     } else 
-{
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
-        {
-    if($mysqli->query($sql))
-        echo "Fisierul". basename( $_FILES["fileToUpload"]["name"]). " a fost incarcat.";
+{   if($mysqli->query($sql))
+        {$idUp=$idUp+1;
+    if (move_uploaded_file($_FILES["fileImg"]["tmp_name"], $target_file)) 
+            
+        echo "Fisierul". basename( $_FILES["fileImg"]["name"]). " a fost incarcat.";
         else
-        echo "A aparut o eroare la inregistrarea fisierului in baza noastra de date!";
+        echo "A aparut o eroare la incarcarea fisierului.";
      } 
     else 
     {
-        echo "A aparut o eroare la incarcarea fisierului.";
+        echo "A aparut o eroare la inregistrarea fisierului in baza noastra de date!";
     }
 }
 ?>
