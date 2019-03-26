@@ -1,67 +1,40 @@
+
 <html>
-<head>
-<style>
-    .header{
-        height:100px;
-        border-bottom-color:dimgrey;
-        text-align: left;
-    }
-    .body{
-        background-color: darkgray;
-    }
-    .meth{
-     text-align: right;
-     font:
-    }
-    #buttongr{
-       text-align: center;
-        background-color: darkslategray;
-        text-decoration: none;
-    }
-    
-    .button{
-         border: none;
-        padding: 15px 32px;
-          float: inherit;
-    text-decoration: none;
-    }
-   .submit:hover {
-  background-color: #3e8e41;
-}
-    .upload{ 
-    height:750px;
-        background-color:  darkslategray; 
-    }
-    .buttonup{
-        border: 2px solid black ;
-        padding: 10px 10px;
-          float: inherit;
-    text-decoration: none;
-        background-color: darkslategray;
-    }
-    .formup{
-        text-align-last: center;
-    }
-    </style>   
-    <script>
-function goBack() {
-  window.history.back();
-}
-</script>
-</head>
-<body class="body">
-    <div class="header">
-        
-        <a href="index.html"><img src="logomarit.png" height="90px" ></a>
-            <button onclick="goBack()"><b>&#10094;</b></button>
-    </div>
-<div class="upload">
-   <form action="upload.php" method="post" enctype="multipart/form-data" class="formup">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload" class="buttonup">
-    <input type="submit" value="Upload Image" name="submit" class="buttonup">
-</form> 
-</div>
-<div class="meth"><b>A site created by Team Method</b></div>
-    </body>
-</html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
+	<title>Upload</title>
+	<style>
+	
+		html, body{background: #ececec; height: 100%; margin: 0; font-family: Arial;}
+		.main{height: 100%; display: flex; justify-content: center;}
+		.main .image-box{width:300px; margin-top: 30px;}
+		.main h2{text-align: center; color: #4D4D4D;}
+		.main .tb{width: 100%; height: 40px; margin-bottom: 5px; padding-left: 5px;}
+		.main .file_input{margin-top: 10px; margin-bottom: 10px;}
+		.main .btn{width: 100%; height: 40px; border: none; border-radius: 3px; background: #27a465; color: #f7f7f7;}
+		.main .msg{color: red; text-align: center;}
+	
+	</style>
+	</head>
+
+	<body>
+
+	<div class="container main" >
+		<div class="image-box">
+			<h2>Upload</h2>
+			<form method="POST" name="upfrm" action="upload.php" enctype="multipart/form-data">
+				<div>
+					<input type="text" placeholder="Enter image name" name="img_name" class="tb" />
+					<input type="file" name="fileImg" class="file_input" />
+					<input type="submit" name="submit" value="submit" class="btn">
+				</div>
+			</form>
+			<div class="msg">
+
+			</div>
+		</div>
+	</div>
+	</body>
+	</html>
+	
