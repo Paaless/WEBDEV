@@ -1,10 +1,11 @@
 <?php
 require "file_db.php";
+require "loggedin.php";
 $target_dir="uploads/";
 $target_file=$target_dir . basename($_FILES["fileImg"]["name"]);
 $uploadOk=1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (isset($_SESSION['messagelog']=='') {
 if($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     $image_name=$_POST["img_name"];
@@ -26,12 +27,12 @@ if (file_exists("$idUp"."$imageFileType")) {
 else
 {
 $sql="INSERT INTO files (name,type)"."VALUES('$image_name','$imageFileType')";}
-if ($_FILES["fileImg"]["size"] > 500000) {
+if ($_FILES["fileImg"]["size"] > 5000000) {
     echo "Marimea fisierului este prea mare.";
     $uploadOk = 0;
 }
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif") 
+&& $imageFileType != "gif" && $imageFileType !="mp3"  && $imageFileType !="mp4") 
 {
     echo "Sunt suportate numai fisierele JPG, JPEG, PNG & GIF.";
     $uploadOk = 0;
@@ -60,5 +61,5 @@ if ($uploadOk == 0) {
     }
     else 
     {
-     $message="Conecteaza-te pentru a putea incarca fisiere";}
+    header("location:login\register.php");}
 ?>
