@@ -4,6 +4,7 @@ $target_dir="uploads/";
 $target_file=$target_dir . basename($_FILES["fileImg"]["name"]);
 $uploadOk=1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 if($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     $image_name=$_POST["img_name"];
@@ -56,4 +57,8 @@ if ($uploadOk == 0) {
         echo "A aparut o eroare la inregistrarea fisierului in baza noastra de date!";
     }
 }
+    }
+    else 
+    {
+     $message="Conecteaza-te pentru a putea incarca fisiere";}
 ?>
