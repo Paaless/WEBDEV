@@ -1,2 +1,22 @@
 <html>
+    <head>
+        <style>
+            .bckgr
+            {
+                background-image: url(bg.png);
+            }
+        </style>
+    </head>
+    <body class="bckgr">
+        <div>
+            <form action="forgot.php" method="POST">
+                <h1>Reseteaza-ti parola</h1>
+                <label>
+              Email Address<span class="req">*</span>
+            </label>
+                <input type="email" required autocomplete="off" name="email">
+               <button type="submit" class="button button-block">Reset</button>
+            </form>
+        </div>
+    </body>
 </html>
