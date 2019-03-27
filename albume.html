@@ -2,16 +2,65 @@
 <head>
 <style>
     .body{
-        background-color: darkgray;
+        background-image: url(bg.png);
     }
     .alb_btn{
         float: right;
     }
+     .dropbtn {
+  background-color: rgba(247, 247, 255, 1);
+text-decoration-color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+    .dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+    .dropdown-content {
+  right: 0;
+  display: none;
+  position: absolute;
+  background-color: rgba(247, 247, 255, 1);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+    .dropdown-content button:hover {background-color: #ddd;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color:rgba(247, 247, 255, 1);}
+.button{
+         border: none;
+        padding: 15px 32px;
+          float: inherit;
+        text-decoration: none;
+        background-color:rgba(247, 247, 255, 1);
+        font-size: 15;
+        font-family: fantasy;
+    }
+     .button:hover {
+  background-color:rgba(189, 213, 234, 1);
+}
     </style>
         </head>
     <body class="body">
     <div class="header">
         <a href="index.html"><img src="logomarit.png" height="90px"></a>
+        <div class="dropdown">
+            <button class="dropbtn">&#9776;</button>
+            <div class="dropdown-content">
+         <button class="button" style="float:right"><a href="loggedout.php" style=" text-decoration: none">Logout</a></button>
+         <button class="button" style="float: right" ><a href="testphp.php" style=" text-decoration: none">Login/Register</a></button>
+            </div>
+        </div>
         </div>
         <a href="createalbum.html" class="alb_btn"><button type="button">Creeaza un album!</button></a>
     </body>
