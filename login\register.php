@@ -5,9 +5,11 @@ require 'db.php';
 <html>
 <head>
 <style>
+    .bckgr{background-image:url(bg.png);}
 </style>
 
 </head>
+    <body class="bckgr">
     <?php
     if($_SERVER['REQUEST_METHOD']== 'POST')
     {
@@ -21,6 +23,12 @@ require 'db.php';
         }
     }
 ?>
+    <div class="message" style="float:center;">
+        <?php
+        if($_SESSION['messagelog']&& $_SESSION['messagelog']!="")
+        echo $_SESSION['messagelog'];
+        ?>
+    </div>
 <div class="form">
       
       <ul class="tab-group">
@@ -61,7 +69,7 @@ require 'db.php';
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="password"/>
+            <input type="password"required autocomplete="off"/>
           </div>
           
           <button type="submit" class="button button-block">Get Started</button>
@@ -89,9 +97,9 @@ require 'db.php';
             <input type="password"required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          <p class="forgot"><a href="forgot.html">Forgot Password?</a></p>
           
-          <button class="button button-block">Log In</button>
+          <button type="submit" class="button button-block">Log In</button>
           
           </form>
 
@@ -100,4 +108,5 @@ require 'db.php';
       </div>
       
     </div>
+</body>  
 </html>
