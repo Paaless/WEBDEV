@@ -12,6 +12,7 @@
        text-align: center;
         background-color:rgba(247, 247, 255, 1);
         text-decoration: none;
+        margin-bottom: 200px;
     }
     
     .button{
@@ -62,6 +63,7 @@ text-decoration-color: black;
         }
         .upload-form
         {
+            border-style: dashed;
         text-align: center;  
         }
 	</style>
@@ -77,15 +79,15 @@ text-decoration-color: black;
             </div>
         </div>
     </div>
-    <div  height="auto" id="buttongr" >
+    <div  height="auto" id="buttongr">
         <button class="button"><a href="index.html" style="text-decoration: none">Acasa</a></button>
         <button class="button"><a href="albume.html" style="text-decoration: none">Alte albume</a></button>
         <button class="button"><a href="upload.html" style="text-decoration: none">Upload</a></button>
         <button class="button"><a href="despre.html" style="text-decoration: none">Despre site</a></button>
     </div>
 <div class="container main">
-<h2 style="text-align: center;">Upload</h2>
             <form method="POST" name="upfrm" action="upload.php" enctype="multipart/form-data" class="upload-form">
+                <h2>Upload</h2>
                 <div>
 <input type="text" placeholder="Enter image name" name="img_name" class="button" />
     <label class="button">Select<input type="file" name="fileImg" class="file"/></label>
