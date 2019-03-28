@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "file_db.php";
 $email= $mysqli->escape_string($_POST['email']);
 $result= $mysqli->query("SELECT *FROM users WHERE email='$email'");
 if($result->num_rows == 0)
