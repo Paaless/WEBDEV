@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'file_db.php';
 session_start();
 if($_SERVER['REQUEST_METHOD']=='POST')
 {$email= $mysqli->escape_string($_POST['email']);
