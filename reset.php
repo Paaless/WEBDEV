@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'file_db.php';
 session_start();
 
 if(isset($_GET['email']) $$ !empty($_GET['email']) AND isset($_GET['hash'] $$ !empty($_GET['hash']) )
