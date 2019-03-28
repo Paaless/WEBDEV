@@ -56,6 +56,14 @@ text-decoration-color: black;
     .dropdown-content button:hover {background-color: #ddd;}
     .dropdown:hover .dropdown-content {display: block;}
     .dropdown:hover .dropbtn {background-color:rgba(247, 247, 255, 1);}
+        .file
+        {
+        display: none;    
+        }
+        .upload-form
+        {
+        text-align: center;  
+        }
 	</style>
 	</head>
 <body class="background">
@@ -76,13 +84,14 @@ text-decoration-color: black;
         <button class="button"><a href="despre.html" style="text-decoration: none">Despre site</a></button>
     </div>
 <div class="container main">
-<h2>Upload</h2>
-            <form method="POST" name="upfrm" action="upload.php" enctype="multipart/form-data">
-<div>
-				<input type="text" placeholder="Enter image name" name="img_name" class="tb" />
-				<input type="file" name="fileImg" class="file_input"/>
-				<input type="submit" name="submit" value="submit" class="btn">
+<h2 style="text-align: center;">Upload</h2>
+            <form method="POST" name="upfrm" action="upload.php" enctype="multipart/form-data" class="upload-form">
+                <div>
+<input type="text" placeholder="Enter image name" name="img_name" class="button" />
+    <label class="button">Select<input type="file" name="fileImg" class="file"/></label>
+	<label class="button">Upload<input type="submit" name="submit" value="submit" class="file"></label>
                 </div>
+                <div id="filelist" class="cb"></div>
 			</form>
 		</div>
 </body>
