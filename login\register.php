@@ -1,5 +1,5 @@
 <?php
-require 'db.php';
+require 'file_db.php';
 ?>
 <!DOCTYPE html>
 <html>
