@@ -23,7 +23,7 @@ $_SESSION['message']=" <p> Un link pentru resetarea parolei a fost trimis la adr
  Pentru a reseta parola contului tau apasa pe linkul atasat acestui mesaj:
  https://localhost/ /reset.php?email='.$email.'&hash='.$hash;
  mail($to,$subject,$message);
- header("location: succes.php");
+ header("location: success.php");
  }
  }
  ?>
