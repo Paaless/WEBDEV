@@ -1,11 +1,11 @@
 <?php
-require "file_db.php";
-require "loggedin.php";
+$_SESSION['messagelog']="";
 $target_dir="uploads/";
 $target_file=$target_dir . basename($_FILES["fileImg"]["name"]);
 $uploadOk=1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-if (isset($_SESSION['messagelog']=='') {
+if(isset($_SESSION['loggedin'])&&$_SESSION['loggedin'] == true)
+{ 
 if($_SERVER['REQUEST_METHOD'] == 'POST') 
 {
     $image_name=$_POST["img_name"];
@@ -20,14 +20,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $uploadOk = 0;
     }
 }
-if (file_exists("$idUp"."$imageFileType")) {
-    echo "Fisierul deja exista.";
-    $uploadOk = 0;
-}
-else
+$sql="INSERT INTO files (name,type)"."VALUES('$image_name','$imageFileType')";
+if ($_FILES["fileImg"]["size"] > 5000000) 
 {
-$sql="INSERT INTO files (name,type)"."VALUES('$image_name','$imageFileType')";}
-if ($_FILES["fileImg"]["size"] > 5000000) {
     echo "Marimea fisierului este prea mare.";
     $uploadOk = 0;
 }
@@ -42,10 +37,12 @@ if($image_name=="")
     $error="Denumeste imaginea!";
 }
 else
-if ($uploadOk == 0) {
+if ($uploadOk == 0) 
+{
     echo "Fisierul nu a fost incarcat";
     } else 
-{   if($mysqli->query($sql))
+{   
+    if($mysqli->query($sql))
         {
     if (move_uploaded_file($_FILES["fileImg"]["tmp_name"], $target_file)) 
             
@@ -60,6 +57,6 @@ if ($uploadOk == 0) {
 }
     }
     else 
-    {
-    header("location:login\register.php");}
+    {$_SESSION['messagelog']="Trebuie sa te conectezi pentru a putea incarca fisiere!";
+    header("location:testphp.php");}
 ?>
