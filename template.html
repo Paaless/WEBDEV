@@ -1,0 +1,213 @@
+<html>
+<head>
+    <style>
+        #buttongr{
+       text-align: center;
+        background-color:rgba(247, 247, 255, 1);
+        text-decoration: none;
+    }
+    
+    .button{
+         border: none;
+        padding: 15px 32px;
+          float: inherit;
+        text-decoration: none;
+        background-color:rgba(247, 247, 255, 1);
+        font-size: 15;
+        font-family: fantasy;
+    }
+     .button:hover {
+  background-color:rgba(189, 213, 234, 1);
+}
+         .dropbtn {
+  background-color: rgba(247, 247, 255, 1);
+text-decoration-color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+    .dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+    .dropdown-content {
+  right: 0;
+  display: none;
+  position: absolute;
+  background-color: rgba(247, 247, 255, 1);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+    a:link {
+  color: rgb(0, 0, 0);
+}
+    a:visited {
+  color: rgb(0, 0, 0);
+}
+    .dropdown-content button:hover {background-color: #ddd;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color:rgba(247, 247, 255, 1);}
+
+        body {
+  font: 13px/1.231 "Lucida Grande", Verdana, sans-serif;
+  background-image: url(bg.png);
+  color: #111;
+  margin: 0;
+}
+.site {
+  /* width: 720px; */
+  max-width: 55.38461538461538em;
+  margin: 1.25em auto;
+  padding: 3.6em;
+  overflow: auto;
+  background-color: #f5f5f5;
+}
+.wide {
+  width: 100%;
+}
+/* Portfolio gallery */
+.gallery-portfolio img {
+  max-width: 100% !important;
+  display: block;
+  border: none;
+  padding: 0;
+}
+.gallery {
+  overflow: auto;
+  list-style: none;
+}
+.gallery-portfolio {
+  margin: 2em auto 0;
+  overflow: auto;
+  list-style: none;
+  padding: 0 !important;
+}
+.gallery-portfolio li,
+.gallery-portfolio li a {
+  float: left;
+  box-sizing: border-box;
+}
+.gallery-portfolio li {
+  float: left;
+  width: 33%;
+  margin: 0 0.5% 4px 0;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+}
+.gallery-portfolio li:nth-child(3n+0) {
+  margin-right: 0;
+  /* outline: 2px dotted red; */
+}
+.gallery-portfolio li a {
+  text-decoration: none;
+  width: 100%;
+  max-height: 126px;
+  transition: outline .4s;
+  outline: 5px solid transparent;
+}
+.gallery-portfolio li a:hover {
+  outline-color: #00adf7;
+}
+.gallery-portfolio li:nth-child(3n+1) {
+  clear: left;
+  /* outline: 3px solid green; */
+}
+/* images original size: width:400px, height: 225px
+images rendered size: width:224px, height: 126px
+ */
+
+p {
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+/* ==========================================================
+Responsive-ness
+============================================================= */
+/* Mobile (landscape)
+Note: Design for a width of 480px
+------------------------------------------------------------- */
+@media only screen and ( min-width: 574px ) and ( max-width: 861px ) {
+  .wide {
+    /* width: auto; */
+  } 
+}
+
+@media only screen and ( max-width: 574px ) {
+  .gallery-portfolio  {
+    overflow: hidden;
+  }
+  .gallery-portfolio li {
+    width: 100%;
+    max-width: 400px;
+  }
+  .gallery-portfolio li a {
+    height: auto;
+    max-height: inherit;
+  }
+}
+
+@media only screen and ( min-width: 862px ) {   }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><img src="logomarit.png" height="90px"></a>
+        <div class="dropdown">
+            <button class="dropbtn">&#9776;</button>
+            <div class="dropdown-content">
+                <button class="button" style="float:right"><a href="loggedout.php" style=" text-decoration: none">Logout</a></button>
+         <button class="button" style="float: right" ><a href="testphp.php" style=" text-decoration: none">Login/Register</a></button>
+            </div>
+        </div>
+    </div>
+    <div  height="auto" id="buttongr" >
+        <button class="button"><a href="index.html" style="text-decoration: none">Acasa</a></button>
+        <button class="button"><a href="albume.html" style="text-decoration: none">Alte albume</a></button>
+        <button class="button"><a href="upload.html" style="text-decoration: none">Upload</a></button>
+        <button class="button"><a href="despre.html" style="text-decoration: none">Despre site</a></button>
+    </div>
+    <div height="100px">&nbsp;</div>
+<div class="site">
+  <header class="entry-header wide">
+    <h2 class="entry-title">Portfolio</h2>
+  </header>
+
+  <div class="entry-content wide">
+
+    <p class="intro">Minimal Image Gallery</p>
+    <ul class="gallery-portfolio">
+      <li><a href="#"><img alt="" src="1.jpg" ></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+      <li><a href="#"><img alt="" src="//placehold.it/400x225"></a></li>
+    </ul><!-- .gallery-portfolio -->
+
+  </div><!-- .wide -->
+
+</div><!-- .site -->
+</body>
+    </html>
