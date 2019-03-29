@@ -14,7 +14,7 @@
     
     .button{
          border: none;
-        padding: 15px 32px;
+        padding: 10px 20px;
           float: inherit;
         text-decoration: none;
         background-color:rgba(247, 247, 255, 1);
@@ -24,16 +24,19 @@
      .button:hover {
   background-color:rgba(189, 213, 234, 1);
 }
+            .frm{
+                text-align: center;
+            }
         </style>
     </head>
     <body class="bckgr">
         <div>
-            <form action="forgot.php" method="POST">
+            <form action="forgot.php" method="POST" class="frm">
                 <h1>Reseteaza-ti parola</h1>
-                <label>
+                <label >
               Email Address<span class="req">*</span>
             </label>
-                <input type="email" required autocomplete="off" name="email">
+                <input type="email" required autocomplete="off" name="email" class="button">
                <button type="submit" class="button">Reset</button>
             </form>
         </div>
