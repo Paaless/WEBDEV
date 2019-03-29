@@ -7,6 +7,24 @@
     .alb_btn{
         float: right;
     }
+     #buttongr{
+       text-align: center;
+        background-color:rgba(247, 247, 255, 1);
+        text-decoration: none;
+    }
+    
+    .button{
+         border: none;
+        padding: 15px 32px;
+          float: inherit;
+        text-decoration: none;
+        background-color:rgba(247, 247, 255, 1);
+        font-size: 15;
+        font-family: fantasy;
+    }
+     .button:hover {
+  background-color:rgba(189, 213, 234, 1);
+}
      .dropbtn {
   background-color: rgba(247, 247, 255, 1);
 text-decoration-color: black;
@@ -49,6 +67,16 @@ text-decoration-color: black;
      .button:hover {
   background-color:rgba(189, 213, 234, 1);
 }
+    a:link {
+  color: rgb(0, 0, 0);
+}
+    a:visited {
+  color: rgb(0, 0, 0);
+}
+    .messagealbum{
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
     </style>
         </head>
     <body class="body">
@@ -61,7 +89,20 @@ text-decoration-color: black;
          <button class="button" style="float: right" ><a href="testphp.php" style=" text-decoration: none">Login/Register</a></button>
             </div>
         </div>
+    </div>
+    <div  height="auto" id="buttongr" >
+        <button class="button"><a href="index.html" style="text-decoration: none">Acasa</a></button>
+        <button class="button"><a href="albume.html" style="text-decoration: none">Alte albume</a></button>
+        <button class="button"><a href="upload.html" style="text-decoration: none">Upload</a></button>
+        <button class="button"><a href="despre.html" style="text-decoration: none">Despre site</a></button>
+    </div>
+        <div class="messagealbum">
+            <?php 
+ echo $_SESSION['message'];
+?>
         </div>
-        <a href="createalbum.html" class="alb_btn"><button type="button">Creeaza un album!</button></a>
+        <div style="text-align: right">
+        <button type="button" class="button" ><a href="createalbum.html" class="alb_btn" style="text-decoration: none">Creeaza un album!</a></button>
+        </div>
     </body>
 </html>
