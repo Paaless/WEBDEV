@@ -1,43 +1,33 @@
 <?php
-require 'file_db.php';
-$_SESSION['email']=$_POST['email'];
-$_SESSION['firstname']=$_POST['firstname'];
-$_SESSION['lastname']=$_POST['lastname'];
 
-$firstname = $mysqli->escape_string($_POST['firstname']);
-$lastname = $mysqli->escape_string($_POST['lastname']);
-$email = $mysqli->escape_string($_POST['email']);
-$password =$mysqli->escape_string(password_hash($_POST['password'],PASSWORD_BCRYPT));
-$hash = $mysqli->escape_string(md5(rand(0,1000) ) );
+$conn=mysqli_connect("localhost","root","","filesdb");
+$checkemail=$_POST['email'];
+if(!$conn){
+    die("Connection error: " . mysqli_connect_error()); 
+}
+$result=$conn->query("SELECT * FROM users WHERE email='$checkemail'") or die($conn->error);
 
-$result = $mysqli->query("SELECT * FROM users WHERE email ='$email' ") or die($mysqli->error());
-
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
 if($result->num_rows > 0)
-{
-    $_SESSION['message']='Exista un utilizator cu acest email deja!';
-    header("location:error.php");
+{ 
+echo "Exista deja un utilizator cu acest email!";
 }
 else{
-    $sql="INSERT INTO users (firstname,lastname,email,password,hash)".
-        "VALUES('$firstname','$lastname','$email','$password','$hash')";
-    if( $mysqli->query($sql) ){
-        $_SESSION['active']=0;
-        $_SESSION['loggedin']=true
-        $_SESSION['message']="Link  de confirmare a fost trimis la $email, te rugam sa iti verifici contul accesand link-ul trimis in email!";
-        $to = $email;
-        $subject='Account Verification'
-        $messageb='
-        Salut'.$firstname.',
-        Multumim pentru ca te-ai inscris!
-        Apasa pe acest link pentru a-ti activa contul:
-        https://localhost/ /verify.php?email='.$email.'&hash='.$hash;
-        mail($to, $subject, $message_body);
-        
-        header("location:profile.php");
+        $firstname = mysqli_real_escape_string($conn,$_POST['firstname']);
+        $lastname = mysqli_real_escape_string($conn,$_POST['lastname']);
+        $email= mysqli_real_escape_string($conn,$_POST['email']);
+        $password=mysqli_real_escape_string($conn,$_POST['password']);
+        $userhash=mysqli_real_escape_string($conn,md5(rand(0,1000)));
+        $options = array("cost"=>4);
+        $hashpassword = password_hash($password,PASSWORD_BCRYPT,$options);
+
+        $sql = "INSERT INTO users (firstname,lastname,email,password,hash)".
+        "VALUES('$firstname','$lastname','$email','$hashpassword','$userhash')";
+        $result = mysqli_query($conn, $sql);
+        if($result)
+        {
+            echo "Inregistrare reusita!";
+        }
     }
-    else{
-        $_SESSION['message']='Inregistrarea a intampinat o eroare!';
-        header("location: error.php");
     }
-}
 ?>
