@@ -12,7 +12,7 @@
        text-align: center;
         background-color:rgba(247, 247, 255, 1);
         text-decoration: none;
-        margin-bottom: 200px;
+        margin-bottom: 50px;
     }
     
     .button{
@@ -63,8 +63,17 @@ text-decoration-color: black;
         }
         .upload-form
         {
-            border-style: dashed;
         text-align: center;  
+        }
+        a:link {
+  color: rgb(0, 0, 0);
+}
+    a:visited {
+  color: rgb(0, 0, 0);
+} 
+        .preview{
+            height: 400px;
+            width: 400px;
         }
 	</style>
 	</head>
@@ -85,13 +94,22 @@ text-decoration-color: black;
         <button class="button"><a href="upload.html" style="text-decoration: none">Upload</a></button>
         <button class="button"><a href="despre.html" style="text-decoration: none">Despre site</a></button>
     </div>
+    <h2 style="text-align: center ">File preview este disponibil momentan numai pentru imagini/gif-uri. </h2>
 <div class="container main">
             <form method="POST" name="upfrm" action="upload.php" enctype="multipart/form-data" class="upload-form">
                 <h2>Upload</h2>
                 <div>
 <input type="text" placeholder="Enter image name" name="img_name" class="button" />
-    <label class="button">Select<input type="file" name="fileImg" class="file"/></label>
+    <label class="button">Select<input type="file" name="fileImg" class="file" accept="image/*" onchange="loadFile(event)"/></label>
 	<label class="button">Upload<input type="submit" name="submit" value="submit" class="file"></label>
+                    <br>
+                    <img id="output" class="preview" alt="File preview">
+                  <script type="text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>  
                 </div>
                 <div id="filelist" class="cb"></div>
 			</form>
